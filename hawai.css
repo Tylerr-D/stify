@@ -6,8 +6,15 @@ body {
     padding: 20px;
 }
 
+header {
+  margin-bottom: 10px;
+}
+
 h1 {
-    font-family: "Gochi Hand", cursive;
+  font-family: "Gochi Hand", cursive;
+  font-size: 64px;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 canvas {
@@ -39,4 +46,11 @@ button, select, input {
 #eraser.on {
   background: #2C2C2C;
   color: #fff;
+}
+
+.tagline {
+  font-family: "Gochi Hand", cursive;
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.7;
 }
