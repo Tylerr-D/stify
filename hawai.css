@@ -35,3 +35,8 @@ button, select, input {
     font-family: "Gochi Hand", cursive; 
     font-size: 18px;
 }
+
+#eraser.on {
+  background: #2C2C2C;
+  color: #fff;
+}
