@@ -14,3 +14,4 @@ just open the html file
 
 ## tech used
 - html, css, js (real simple)
+

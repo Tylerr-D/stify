@@ -4,6 +4,7 @@ let drawing = false
 let lastX = 0
 let lastY = 0
 let erasing = false;
+let eraserMode = false;
 
 function pos(e){
     const r = canvas.getBoundingClientRect();
@@ -45,6 +46,7 @@ window.addEventListener("pointerup", end);
 eraser.onclick = () => { 
     erasing = !erasing;
     eraser.classList.toggle("on", erasing);  
+      eraserMode = !eraserMode;
 };
 
 clear.onclick = () => ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -96,5 +98,34 @@ a.href = out.toDataURL("image/png");
 a.download = "cool-sticker.png";
 a.click();
 }
+
+
+const cursor = document.getElementById("cursor");
+
+function moveCursor(e){
+
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+
+  const size = document.getElementById("size").valueAsNumber || 10;
+    const d = Math.max(size, 14);
+    cursor.style.width = d + "px";
+    cursor.style.height = d + "px";
+
+    cursor.style.borderColor = eraserMode ? "#800020" : "#2C2C2C";
+
+     cursor.style.display = eraserMode ? "block" : "none";
+} 
+
+// canvas.addEventListener("pointermove", (e) => {
+//   moveCursor(e);
+//   sizeCursor();
+// });
+
+canvas.addEventListener("pointermove", moveCursor);
+canvas.addEventListener("pointerenter", moveCursor);
+canvas.addEventListener("pointerleave", () => (cursor.style.display = "none"));
 
 go.onclick = makeSticker;
